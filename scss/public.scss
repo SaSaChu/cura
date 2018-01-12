@@ -44,63 +44,93 @@ html {
   display: inline-block;
   max-width: 1480px;
   width: 100%;
+  margin: 0 auto;
   background-color: white;
   position: relative;
-
 
   .top {
     display: inline-block;
     width: 100%;
     max-width: 1480px;
     position: fixed;
+    z-index: 999;
+    background-color: white;
     top: 0;
-    padding: 0 90px;
     border-bottom: 1px solid rgba(196, 196, 196, .5);
     @include clearfix();
 
     height: 70px;
 
-    .logo {
-      display: inline-block;
-      outline: 0;
-      cursor: pointer;
-      float: left;
-      text-decoration: none;
-
-      &:before {
-        display: inline-block;
-        content: '\e900';
-        font-family: 'icomoon';
-        color: rgba(22, 76, 144, 1.00);
-        font-size: 1.55rem;
-        line-height: 70px;
-      }
+    @include range-width(450px, 1340px) {
+      padding: 0 10px;
     }
 
-    .menu {
-      display: inline-block;
-      text-align: left;
-      float: left;
-      margin-left: 30px;
+    @include range-width(0, 450px) {
+      padding: 0 10px;
+      height: 45px;
+    }
 
-      a {
+    .top_boxs {
+      display: inline-block;
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+
+      .logo {
         display: inline-block;
         outline: 0;
         cursor: pointer;
         float: left;
         text-decoration: none;
-        color: rgba(88, 88, 88, 1.00);
-        font-size: 1rem;
-        line-height: 70px;
-        font-weight: 300;
 
-        &:hover, &:active {
+        &:before {
+          display: inline-block;
+          content: '\e900';
+          font-family: 'icomoon';
           color: rgba(22, 76, 144, 1.00);
+          font-size: 1.55rem;
+          line-height: 70px;
+
+          @include range-width(0, 450px) {
+            line-height: 45px;
+            font-size: 1.2rem;
+          }
         }
       }
 
-      ~ * {
-        float: right;
+      .menu {
+        display: inline-block;
+        text-align: left;
+        float: left;
+        margin-left: 30px;
+
+        @include range-width(0, 450px) {
+          margin-left: 15px;
+        }
+
+        a {
+          display: inline-block;
+          outline: 0;
+          cursor: pointer;
+          float: left;
+          text-decoration: none;
+          color: rgba(88, 88, 88, 1.00);
+          font-size: 1rem;
+          line-height: 70px;
+          font-weight: 300;
+
+          @include range-width(0, 450px) {
+            line-height: 45px;
+          }
+
+          &:hover, &:active {
+            color: rgba(22, 76, 144, 1.00);
+          }
+        }
+
+        ~ * {
+          float: right;
+        }
       }
     }
   }
@@ -111,6 +141,10 @@ html {
     display: inline-block;
     width: 100%;
     padding-top: 70px;
+
+    @include range-width(0, 450px) {
+      padding-top: 45px;
+    }
 
     .banner_boxs, .product_boxs, .feature_boxs {
       display: inline-block;
@@ -130,6 +164,10 @@ html {
     }
 
     .banner_boxs {
+      @include range-width(0, 450px) {
+        height: 500px;
+      }
+
      .container {
       .banner_type_boxs {
         display: inline-block;
@@ -144,6 +182,12 @@ html {
           padding-top: 100px;
           text-align: left;
           
+          @include range-width(0, 450px) {
+            padding: 50px 15px 0 15px;
+            width: 100%;
+            text-align: center;
+          }
+
           span, a, p {
             display: inline-block;
           }
@@ -155,6 +199,11 @@ html {
             font-size: 3rem;
             font-weight: 800;
             color: rgba(38, 38, 38, 1.00);
+
+            @include range-width(0, 450px) {
+              font-size: 1.5rem;
+              font-weight: 600;
+            }
           }
 
           p {
@@ -164,6 +213,12 @@ html {
             font-size: 1.3rem;
             font-weight: 300;
             line-height: 30px;
+
+            @include range-width(0, 450px) {
+              font-size: 1rem;
+              line-height: 20px;
+              padding: 10px 0;
+            }
           }
 
           a {
@@ -182,6 +237,11 @@ html {
             &:hover, &:active {
               background-color: rgba(22, 76, 144, .9);
             }
+
+            @include range-width(0, 450px) {
+              font-size: 1rem;
+              padding: 8px 25px;
+            }
           }
         }
       }
@@ -189,7 +249,11 @@ html {
      
      img {
       width: 100%;
-      max-width: 1480px;
+      max-width: 1480px; 
+
+      @include range-width(0, 450px) {
+        height: 100%;
+      }
      }
     }
 
@@ -197,16 +261,285 @@ html {
       max-width: 1170px;
       width: 100%;
       margin: 0 auto;
+      padding: 70px 0;
+      @include clearfix();
 
-      // d
-      height: 100px;
-      background-color: rgba(0, 128, 0, 0.2);
+      .product_info {
+        display: inline-block;
+        width: calc(100% / 4 - 30px * 3 / 4);
+        float: left;
+
+        @include range-width(0, 450px) {
+          width: 100%;
+          padding: 10px;
+        }
+
+        &:nth-child(1) {
+          margin-right: 15px;
+
+          @include range-width(0, 450px) {
+            margin-right: 0;
+          }
+        }
+
+        &:nth-child(4) {
+          margin-left: 15px;
+
+          @include range-width(0, 450px) {
+            margin-left: 0;
+          }
+        }
+
+        &:nth-child(2), &:nth-child(3) {
+          margin: 0 15px;
+
+          @include range-width(0, 450px) {
+            margin: 0;
+          }
+        }
+
+        
+
+        div {
+          display: inline-block;
+          width: 100%;
+          height: 235px;
+
+          img {
+            max-width: 100%;
+          }
+        }
+
+        p {
+          display: inline-block;
+          padding: 10px 0;
+          margin: 0;
+          font-size: 1rem;
+          font-weight: 300;
+          color: rgba(38, 38, 38, 1.00);
+          line-height: 24px;
+
+          &.p_title {
+            color: rgba(41, 175, 144, 1.00);
+            font-size: 1.2rem;
+            font-weight: 600;
+            padding: 0;
+            line-height: 0;
+          }
+        }
+      }
     }
 
     .feature_boxs {
-      // d
-      height: 100px;
-      background-color: rgba(0, 128, 0, 0.2);
+
+      @include range-width(0, 450px) {
+        height: 500px;
+      }
+
+      .tag_boxs {
+        display: inline-block;
+        width: 100%;
+        position: absolute;
+        z-index: 100;
+        padding: 55px 0;
+
+        > div {
+          display: inline-block;
+          cursor: pointer;
+          font-size: 1rem;
+          font-weight: 300;
+          color: rgba(38, 38, 38, 1.00);
+          max-width: 165px;
+          background-color: white;
+          @include border-radius(3px);
+          padding: 10px 20px;
+
+          + * {
+            margin-left: 15px;
+          } 
+
+          &.tag_ac {
+            background-color: rgba(21, 67, 133, 1.00);
+            color: white;
+            position: relative;
+
+            &:after {
+              top: 100%;
+              left: 50%;
+              border: solid transparent;
+              content: " ";
+              height: 0;
+              width: 0;
+              position: absolute;
+              pointer-events: none;
+              border-color: rgba(255, 255, 255, 0);
+              border-top-color: rgba(21, 67, 133, 1.00);
+              border-width: 10px;
+              margin-left: -10px;
+            }
+          }
+        }
+      }
+
+      .container {
+        .teature_type_boxs {
+          display: inline-block;
+          width: 100%;
+          max-width: 1170px;
+          @include clearfix();
+
+          @include range-width(0, 450px) {
+            padding: 0 10px;
+          }
+
+          .teature_type_box {
+            display: inline-block; 
+            width: 50%;
+            float: left;
+            padding-top: 200px;
+            text-align: left;
+
+            @include range-width(0, 450px) {
+              width: 100%;
+              padding-top: 50px;
+            }
+
+            span, p, a {
+              display: inline-block;
+              width: 100%;
+            }
+
+            span {
+              font-size: 1.2rem;
+              color: rgba(38, 38, 38, 1.00);
+              font-weight: 600;
+
+              @include range-width(0, 450px) {
+                font-size: 1rem;
+              }
+            }
+
+            p {
+              margin: 0;
+              padding: 15px 0;
+              line-height: 24px;
+              font-size: 1rem;
+              color: rgba(38, 38, 38, 1.00);
+              font-weight: 300;
+            }
+
+            a {
+              cursor: pointer;
+              text-decoration: none;
+              color: rgba(41, 175, 144, 1.00);
+              font-weight: 600;
+              font-size: 1rem;
+              @include transition(all .3s);
+
+              &:after {
+                display: inline-block;
+                content: '\ea1c';
+                font-family: icomoon;
+                margin-left: 15px;
+                font-size: .8px;
+                padding-top: 3px;
+              }
+
+              &:hover, &:active {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+
+      img {
+        width: 100%;
+        max-width: 1480px;
+
+        @include range-width(0, 450px) {
+          height: 100%;
+        }
+      }
+    }
+
+    .type_boxs {
+      display: inline-block;
+      max-width: 1170px;
+      width: 100%;
+      padding-top: 50px;
+      @include clearfix();
+
+      .type_left {
+        display: inline-block;
+        width: 380px;
+        padding-right: 80px;
+        float: left;
+        text-align: left;
+        @include clearfix();
+
+        > div {
+          width: 100%;
+          cursor: pointer;
+          display: inline-block;
+          background-color: white;
+          color: rgba(30, 30, 30, 1.00);
+          font-size: 1rem;
+          font-weight: 300;
+          float: left;
+          padding: 10px 20px;
+          @include border-radius(3px);
+          margin-bottom: 20px;
+          @include transition(all .3s);
+
+          &:hover, &:active, &.type_ac {
+            background-color: rgba(22, 76, 144, 1.00);
+            color: white;
+          }
+        }
+      }
+
+      .type_right {
+        display: inline-block;
+        float: left;
+        width: calc(100% - 380px);
+        text-align: left;
+
+        p {
+          display: inline-block;
+          color: rgba(30, 30, 30, 1.00);
+          padding: 0;
+          margin: 0;
+          line-height: 26px;
+
+          &.p01 {
+            font-size: 1.1rem;
+            padding-bottom: 30px;
+            font-weight: 300; 
+          }
+
+          &.p02 {
+            font-size: 1.3rem;
+            font-weight: 600;
+          }
+
+          &.p03 {
+            font-size: 1.2rem;
+            font-weight: 600;
+
+            &:before {
+              display: inline-block;
+              content: '．';
+            }
+          }
+
+          &.p04 {
+            font-size: 1rem;
+            font-weight: 300;
+            padding-left: 20px;
+          }
+        }
+      }
     }
   }
 
@@ -217,6 +550,10 @@ html {
     width: 100%;
     max-width: 1170px;
     padding: 35px 0;
+
+    @include range-width(0, 1340px) {
+      padding: 20px;
+    }
 
     .footer_boxs {
       display: inline-block;
@@ -233,9 +570,28 @@ html {
         float: left;
         margin-bottom: 15px;
 
+        @include range-width(450px, 1020px) {
+          width: calc(100% / 4);
+          padding: 10px 30px ;
+          margin-bottom: 0;
+        }
+
+        @include range-width(475px, 580px) {
+          width: calc(100% / 4);
+          padding: 10px 20px ;
+          margin-bottom: 0;
+        }
+
+        @include range-width(0, 475px) {
+          width: calc(100% / 2);
+          padding: 10px 20px ;
+          margin-bottom: 0;
+        }
+
         img {
           width: 100%;
         }
+
       }
 
       .footer_box {
@@ -245,9 +601,20 @@ html {
         @include clearfix();
         padding-top: 15px;
 
+        @include range-width(0, 530px) {
+          text-align: center;
+        }
+
         .f_link {
           display: inline-block;
           float: left;
+
+          @include range-width(0, 530px) {
+            width: 100%;
+            float: none;
+            text-align: center;
+            padding: 10px 0;
+          }
 
           a {
             display: inline-block;
@@ -267,6 +634,10 @@ html {
             display: inline-block;
             content: '│';
             padding: 0 3px;
+
+            @include range-width(0, 530px) {
+              display: none;
+            }
           }
 
           &:first-child {
@@ -274,15 +645,23 @@ html {
               display: none;
             }
           }
+
+          &:last-child {
+            float: right;
+            &:before { 
+              display: none;
+            }
+          }
+
+          select {
+            display: inline-block;
+            width: 90px;
+            outline: 0;
+            background-color: white;
+          }
         }
 
-        select {
-          display: inline-block;
-          width: 90px;
-          outline: 0;
-          float: right;
-          background-color: white;
-        }
+
 
         p {
           display: inline-block;
