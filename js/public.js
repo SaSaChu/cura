@@ -6,6 +6,5 @@
 
 $(function () {
 
-  $(".fea_box01").imgLiquid ();
   
 });

@@ -40,435 +40,263 @@ html {
 }
 
 
-
-#bigboxs {
+#out_boxs {
   display: inline-block;
-  width: 100%;
   max-width: 1480px;
-  margin: 0 auto;
+  width: 100%;
   background-color: white;
   position: relative;
 
-  .container {
-    display: inline-block;
-    width: 100%;
-    max-width: 1170px;
-    padding: 0 15px;
-    margin: 0 auto;
-    @include clearfix();
-  }
 
-
-  .top_header {
+  .top {
     display: inline-block;
     width: 100%;
     max-width: 1480px;
-    padding: 8px 0;
-    height: 65px;
-    background-color: white;
     position: fixed;
-    z-index: 999;
+    top: 0;
+    padding: 0 90px;
+    border-bottom: 1px solid rgba(196, 196, 196, .5);
+    @include clearfix();
 
-    .container {
+    height: 70px;
+
+    .logo {
       display: inline-block;
-      max-width: 1330px;
+      outline: 0;
+      cursor: pointer;
+      float: left;
+      text-decoration: none;
 
-      .a_logo {
+      &:before {
         display: inline-block;
-        outline: 0;
-        cursor: pointer;
-        padding-top: 13px;
-        float: left;
-
-        img {
-          display: inline-block;
-          width: 100%;
-          max-width: 96px;
-        }
-      }
-
-      .top_link {
-        display: inline-block;
-        cursor: pointer;
-        float: left;
-        color: rgba(90, 90, 90, 1.00);
-        font-size: 1.15rem;
-        text-decoration: none;
-        @include transition(color .3s);
-        line-height: 52px;
-        margin-left: 30px;
-        font-weight: 300;
-
-        &:hover, &:active {
-          color: rgba(16, 58, 119, 1.00);
-        }
-
-        &.top_link_r {
-          float: right;
-          margin-left: 0;
-        }
+        content: '\e900';
+        font-family: 'icomoon';
+        color: rgba(22, 76, 144, 1.00);
+        font-size: 1.55rem;
+        line-height: 70px;
       }
     }
 
-  } 
+    .menu {
+      display: inline-block;
+      text-align: left;
+      float: left;
+      margin-left: 30px;
+
+      a {
+        display: inline-block;
+        outline: 0;
+        cursor: pointer;
+        float: left;
+        text-decoration: none;
+        color: rgba(88, 88, 88, 1.00);
+        font-size: 1rem;
+        line-height: 70px;
+        font-weight: 300;
+
+        &:hover, &:active {
+          color: rgba(22, 76, 144, 1.00);
+        }
+      }
+
+      ~ * {
+        float: right;
+      }
+    }
+  }
 
 
 
-  .banner_boxs {
+  .cent {
     display: inline-block;
     width: 100%;
-    margin-top: 65px;
+    padding-top: 70px;
 
-    .container {
-      max-width: 1480px;
-      padding: 0;
+    .banner_boxs, .product_boxs, .feature_boxs {
+      display: inline-block;
+      position: relative;
 
-      // d
-      // border: 1px solid rgba(255, 0, 0, .3);
-
-      .banner_box {
+      .container {
         display: inline-block;
         width: 100%;
-        height: 525px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    .banner_boxs, .feature_boxs {
+      width: 100%;
+    }
+
+    .banner_boxs {
+     .container {
+      .banner_type_boxs {
+        display: inline-block;
+        width: 100%;
+        max-width: 1170px;
         @include clearfix();
 
-        &.b01 {
-          background: url(../img/pic01.jpg) 50% 50% no-repeat;
-          background-size: cover;
-        }
-
-        .banner_type_boxs {
-          display: inline-block;
-          padding-left: 155px;
-          padding-top: 90px;
+        .banner_type_box {
+          display: inline-block; 
+          width: 50%;
           float: left;
+          padding-top: 100px;
           text-align: left;
-          width: 35%;
-         
-
-          h1 {
+          
+          span, a, p {
             display: inline-block;
-            width: 100%;
-            font-size: 2.5rem;
-            color: rgba(38, 38, 38, 1.00);
-            font-weight: 600;
+          }
+
+          span {
+            padding: 0;
             margin: 0;
+
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(38, 38, 38, 1.00);
           }
 
           p {
-            display: inline-block;
-            width: 100%;
-            padding: 25px 0;
+            padding: 20px 0;
             margin: 0;
-            line-height: 35px;
             color: rgba(38, 38, 38, 1.00);
             font-size: 1.3rem;
             font-weight: 300;
+            line-height: 30px;
           }
 
           a {
             display: inline-block;
-            cursor: pointer;
             outline: 0;
-            border: 0;
+            cursor: pointer;
+            background-color: rgba(22, 76, 144, 1.00);
             color: white;
             font-size: 1.2rem;
-            line-height: 30px;
             font-weight: 300;
-            padding: 10px 40px;
-            background-color: rgba(18, 66, 135, 1.00);
             @include border-radius(50px);
-            @include transition(background-color .3s);
-            
+            padding: 10px 25px;
+            @include transition(all .3s);
+            text-decoration: none;
+
             &:hover, &:active {
-              background-color: rgba(18, 66, 135, .9);
+              background-color: rgba(22, 76, 144, .9);
             }
           }
         }
       }
-    }
-  }
-
-
-
-
-  .product_boxs {
-    display: inline-block;
-    width: 100%;
-
-    .container {
-      padding: 0;
-
-      .p_boxs {
-        display: inline-block;
-        width: calc(100% / 4 - 15px * 5 / 3);
-        float: left;
-        padding: 90px 0;
-        margin-left: 33px;
-
-
-        &:nth-child(1) {
-          float: left;
-          margin: 0;
-        }
-
-        &:nth-child(4) {
-          float: right;
-        }
-
-        .p_img_boxs {
-          display: inline-block;
-          width: 100%;
-          height: 268px;
-          background-color: rgba(0, 128, 0, 0.2);
-        }
-
-        h2 {
-          display: inline-block;
-          width: 100%;
-          margin: 0;
-          font-size: 1.2rem;
-          font-weight: 600;
-          color: rgba(41, 175, 144, 1.00);
-          padding: 10px 0;
-        }
-
-        p {
-          display: inline-block;
-          width: 100%;
-          padding: 0;
-          margin: 0;
-          font-size: .9rem;
-          color: rgba(38, 38, 38, 1.00);
-          font-weight: 300;
-          line-height: 23px;
-        }
-      }
-    }
-  }
-
-
-
-
-  .feature_boxs {
-    display: inline-block;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-
-    .tag_boxs {
-      display: inline-block;
-      position: absolute;
-      top: 0;
-      left: 0;
+     }
+     
+     img {
       width: 100%;
-      padding: 55px 0;
-      z-index: 90;
-
-      > div {
-        cursor: pointer;
-        position: relative;
-        display: inline-block;
-        width: 125px;
-        @include border-radius(3px);
-        background-color: white;
-        color: rgba(38, 38, 38, 1.00);
-        font-size: .9rem;
-        font-weight: 300;
-        padding: 15px 0;
-        @include transition(all .3s);
-
-        &:last-child {
-          margin-left: 15px;
-        }      
-
-        &.in_ac {
-          background-color: rgba(21, 67, 133, 1.00);
-          color: white;
-
-          &:after {
-            top: 100%;
-            left: 50%;
-            border: solid transparent;
-            content: " ";
-            height: 0;
-            width: 0;
-            position: absolute;
-            pointer-events: none;
-            border-color: rgba(255, 255, 255, 0);
-            border-top-color: rgba(22, 76, 144, 1.00);
-            border-width: 10px;
-            margin-left: -10px;
-          }
-        }
-      }
+      max-width: 1480px;
+     }
     }
 
-    
-    .fea_box01 {
-      display: inline-block;
+    .product_boxs {
+      max-width: 1170px;
       width: 100%;
-      position: relative;
+      margin: 0 auto;
 
-      .tag_box {
-        display: inline-block;
-        width: 100%;
-        position: absolute;
-        top: 200px;
-        left: 0;
-        z-index: 80;
-
-        .tag_cent {
-          display: inline-block;
-          width: 100%;
-          text-align: left;
-          max-width: 1170px;
-          margin: 0 auto;
-
-          .tag_type {
-            display: inline-block;
-            width: 50%;
-
-            h3 {
-              display: inline-block;
-              width: 100%;
-              color: rgba(39, 40, 34, 1.00);
-              font-size: 2rem;
-              font-weight: 600;
-              margin: 0;
-            }
-
-            p {
-              display: inline-block;
-              width: 100%;
-              color: rgba(39, 40, 34, 1.00);
-              font-size: 1rem;
-              line-height: 26px;
-              font-weight: 300;
-              padding: 10px 0;
-              margin: 0;
-            }
-
-            a {
-              display: inline-block;
-              cursor: pointer;
-              color: rgba(49, 178, 149, 1.00);
-              text-decoration: none;
-              font-size: 1.2rem;
-              font-weight: 600;
-              @include transition(all .3s);
-
-              &:hover, &:active {
-                text-decoration: underline;
-              }
-
-              &:after {
-                display: inline-block;
-                content: '\ea1c';
-                font-family: icomoon;
-                font-size: .7rem;
-                margin-left: 10px;
-                padding-top: 6px;
-              }
-            }
-          }        
-        }
-      }
-
-      img {
-        width: 100%;
-      }
+      // d
+      height: 100px;
+      background-color: rgba(0, 128, 0, 0.2);
     }
 
+    .feature_boxs {
+      // d
+      height: 100px;
+      background-color: rgba(0, 128, 0, 0.2);
+    }
   }
-
 
 
 
   footer {
     display: inline-block;
     width: 100%;
-    padding-bottom: 40px;
+    max-width: 1170px;
+    padding: 35px 0;
 
-    .container {
+    .footer_boxs {
+      display: inline-block;
+      width: 100%;
 
-      .f_logo_boxs {
+      &.copy_boxs {
+        padding-top: 0;
+        border-top: 1px solid rgba(234, 233, 234, 1.00);
+      }
+
+      .footer_logo {
         display: inline-block;
-        width: 100%;
-        @include clearfix();
-        
-        > div {
-          width: calc(100% / 8);
-          float: left;
-          padding: 40px 0;
+        width: calc(100% / 8);
+        float: left;
+        margin-bottom: 15px;
 
-          img {
-            display: inline-block;
-            width: 100%;
-            max-width: 120px;
-          }
+        img {
+          width: 100%;
         }
       }
 
-      .footer_boxs {
+      .footer_box {
         display: inline-block;
         width: 100%;
-        border-top: 1px solid rgba(230, 229, 230, 1.00);
         text-align: left;
+        @include clearfix();
+        padding-top: 15px;
 
-        .f01 {
+        .f_link {
           display: inline-block;
-          width: 100%;
-          padding: 20px 0;
-          @include clearfix();
-          
-          .f_link {
+          float: left;
+
+          a {
             display: inline-block;
+            cursor: pointer;
+            color: rgba(146, 146, 146, 1.00);
+            font-size: .9rem;
+            font-weight: 300;
+            text-decoration: none;
+            @include transition(all .3s);
 
-            + * {
-              &:before {
-                display: inline-block;
-                content: '│';
-                font-size: .9rem;
-                color: rgba(174, 173, 179, 1.00);
-              }
-            }
-            
-
-            &:last-child {
-              float: right;
-              &:before {
-                display: none;
-              }
-            }
-
-            a {
-              display: inline-block;
-              cursor: pointer;
-              font-size: .9rem;
-              color: rgba(174, 173, 179, 1.00);
-              text-decoration: none;
-              @include transition(color .3s);
-
-              &:hover, &:active {
-                color: rgba(16, 76, 146, 1.00);
-              }
+            &:hover, &:active {
+              color: rgba(22, 76, 144, 1.00);
             }
           }
+
+          &:before {
+            display: inline-block;
+            content: '│';
+            padding: 0 3px;
+          }
+
+          &:first-child {
+            &:before {
+              display: none;
+            }
+          }
+        }
+
+        select {
+          display: inline-block;
+          width: 90px;
+          outline: 0;
+          float: right;
+          background-color: white;
         }
 
         p {
           display: inline-block;
-          padding: 0;
-          margin: 0;
+          color: rgba(146, 146, 146, 1.00);
           font-size: .9rem;
-          color: rgba(174, 173, 179, 1.00);
+          font-weight: 300;
+          margin: 0;
+          padding: 0;
         }
       }
     }
   }
-
 }
+
 
 
 
