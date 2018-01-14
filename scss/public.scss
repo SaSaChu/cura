@@ -164,97 +164,188 @@ html {
     }
 
     .banner_boxs {
-      @include range-width(0, 450px) {
-        height: 500px;
+      position: relative;
+      overflow: hidden;
+      height: 500px;
+      @include range-width(0, 540px) {
+        height: 600px;
       }
 
-     .container {
-      .banner_type_boxs {
+      > div {
+        position: absolute;
+      }
+      .pagination {
+        $s: 16px;
+        z-index: 2;
+        bottom: 10px;
+        left: 0;
         display: inline-block;
         width: 100%;
-        max-width: 1170px;
-        @include clearfix();
-
-        .banner_type_box {
-          display: inline-block; 
-          width: 50%;
-          float: left;
-          padding-top: 100px;
-          text-align: left;
+        height: $s;
+        text-align: center;
+        > div {
+          display: inline-block;
+          margin: 0 auto;
+          @include clearfix();
           
-          @include range-width(0, 450px) {
-            padding: 50px 15px 0 15px;
-            width: 100%;
-            text-align: center;
-          }
-
-          span, a, p {
+          > * {
+            float: left;
             display: inline-block;
-          }
-
-          span {
-            padding: 0;
-            margin: 0;
-
-            font-size: 3rem;
-            font-weight: 800;
-            color: rgba(38, 38, 38, 1.00);
-
-            @include range-width(0, 450px) {
-              font-size: 1.5rem;
-              font-weight: 600;
-            }
-          }
-
-          p {
-            padding: 20px 0;
-            margin: 0;
-            color: rgba(38, 38, 38, 1.00);
-            font-size: 1.3rem;
-            font-weight: 300;
-            line-height: 30px;
-
-            @include range-width(0, 450px) {
-              font-size: 1rem;
-              line-height: 20px;
-              padding: 10px 0;
-            }
-          }
-
-          a {
-            display: inline-block;
-            outline: 0;
+            width: $s;
+            height: $s;
+            @include border-radius(50%);
+            background-color: rgba(255, 255, 255, .65);
+            @include transition(background-color .3s);
             cursor: pointer;
-            background-color: rgba(22, 76, 144, 1.00);
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 300;
-            @include border-radius(50px);
-            padding: 10px 25px;
-            @include transition(all .3s);
-            text-decoration: none;
-
-            &:hover, &:active {
-              background-color: rgba(22, 76, 144, .9);
+            
+            + * {
+              margin-left: 4px;
             }
-
-            @include range-width(0, 450px) {
-              font-size: 1rem;
-              padding: 8px 25px;
+            &.a {
+              background-color: white;
             }
           }
         }
       }
-     }
-     
-     img {
-      width: 100%;
-      max-width: 1480px; 
-
-      @include range-width(0, 450px) {
+      .bbox {
+        z-index: 1;
+        left: 0;
+        top: 0;
+        display: inline-block;
+        width: 100%;
         height: 100%;
+        @include transition(left .3s);
+
+        .container {
+          z-index: 2;
+          padding: 0 16px;
+          
+          .banner_type_boxs {
+            display: inline-block;
+            width: 100%;
+            max-width: 1170px;
+            @include clearfix();
+
+            .banner_type_box {
+              display: inline-block; 
+              width: 50%;
+              float: left;
+              padding-top: 100px;
+              text-align: left;
+              
+              @include range-width(0, 540px) {
+                padding: 50px 15px 0 15px;
+                width: 100%;
+                text-align: center;
+              }
+
+              span, a, p {
+                display: inline-block;
+              }
+
+              span {
+                padding: 0;
+                margin: 0;
+
+                font-size: 3rem;
+                font-weight: 800;
+                color: rgba(38, 38, 38, 1.00);
+
+                @include range-width(0, 769px) {
+                  font-size: 1.5rem;
+                  font-weight: 600;
+                }
+                @include range-width(769px, 1000px) {
+                  font-size: 2rem;
+                }
+              }
+
+              p {
+                padding: 20px 0;
+                margin: 0;
+                color: rgba(38, 38, 38, 1.00);
+                font-size: 1.3rem;
+                font-weight: 300;
+                line-height: 30px;
+
+                @include range-width(0, 450px) {
+                  font-size: 1rem;
+                  line-height: 20px;
+                  padding: 10px 0;
+                }
+              }
+
+              a {
+                display: inline-block;
+                outline: 0;
+                cursor: pointer;
+                background-color: rgba(22, 76, 144, 1.00);
+                color: white;
+                font-size: 1.2rem;
+                font-weight: 300;
+                @include border-radius(50px);
+                padding: 10px 25px;
+                @include transition(all .3s);
+                text-decoration: none;
+
+                &:hover, &:active {
+                  background-color: rgba(22, 76, 144, .9);
+                }
+
+                @include range-width(0, 450px) {
+                  font-size: 1rem;
+                  padding: 8px 25px;
+                }
+              }
+            }
+          }
+        }
+        .img, .img-mobile {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+        }
+        .img {
+          @include range-width(0, 540px) {
+            display: none;
+          }
+        }
+        .img-mobile {
+          @include range-width(540px) {
+            display: none;
+          };
+        }
       }
-     }
+      @for $i from 1 through 10 {
+        &.b#{$i - 1} {
+          .bbox {
+            @for $j from 1 through 10 {
+              &:nth-child(#{$j}) {
+                left: #{($j - $i) * 100%};
+              }
+            }
+          }
+        }
+      }
+
+
+     //  @include range-width(0, 450px) {
+     //    height: 500px;
+     //  }
+
+     
+     // img {
+     //  width: 100%;
+     //  max-width: 1480px; 
+
+     //  @include range-width(0, 450px) {
+     //    height: 100%;
+     //  }
+     // }
     }
 
     .product_boxs {
@@ -266,44 +357,50 @@ html {
 
       .product_info {
         display: inline-block;
-        width: calc(100% / 4 - 30px * 3 / 4);
         float: left;
 
-        @include range-width(0, 450px) {
+        @include range-width(0, 540px) {
           width: 100%;
           padding: 10px;
         }
+        @include range-width(540px, 830px) {
+          width: calc(100% / 2 - 30px * 1 / 2);
 
-        &:nth-child(1) {
-          margin-right: 15px;
-
-          @include range-width(0, 450px) {
-            margin-right: 0;
+          &:nth-child(2n + 2) {
+            margin-left: 30px;
+          }
+          &:nth-child(n + 3) {
+            margin-top: 30px;
           }
         }
-
-        &:nth-child(4) {
-          margin-left: 15px;
-
-          @include range-width(0, 450px) {
-            margin-left: 0;
+        @include range-width(830px) {
+          width: calc(100% / 4 - 30px * 3 / 4);
+          &:nth-child(1) {
+            margin-right: 15px;
           }
-        }
 
-        &:nth-child(2), &:nth-child(3) {
-          margin: 0 15px;
-
-          @include range-width(0, 450px) {
-            margin: 0;
+          &:nth-child(4) {
+            margin-left: 15px;
           }
-        }
+
+          &:nth-child(2), &:nth-child(3) {
+            margin: 0 15px;
+          }
+        };
 
         
-
+        &:hover {
+          > div {
+            margin-top: -20px;
+            margin-bottom: 20px;
+          }
+        }
         div {
           display: inline-block;
           width: 100%;
           height: 235px;
+          @include transition(margin .3s);
+          
 
           img {
             max-width: 100%;
@@ -312,6 +409,7 @@ html {
 
         p {
           display: inline-block;
+          width: 100%;
           padding: 10px 0;
           margin: 0;
           font-size: 1rem;
@@ -324,7 +422,7 @@ html {
             font-size: 1.2rem;
             font-weight: 600;
             padding: 0;
-            line-height: 0;
+            @include overflow-docx3();
           }
         }
       }
@@ -332,16 +430,25 @@ html {
 
     .feature_boxs {
 
-      @include range-width(0, 450px) {
-        height: 500px;
+      // @include range-width(0, 450px) {
+      //   height: 500px;
+      // }
+      @include range-width(0, 850px) {
+        background-color: rgba(239, 239, 239, 1.00);
       }
 
       .tag_boxs {
         display: inline-block;
         width: 100%;
         position: absolute;
+        left: 0;
+        top: 50px;
         z-index: 100;
-        padding: 55px 0;
+        padding: 0;
+
+        @include range-width(0, 850px) {
+          display: none;
+        };
 
         > div {
           display: inline-block;
@@ -381,91 +488,167 @@ html {
         }
       }
 
-      .container {
-        .teature_type_boxs {
+      .features {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        > div {
+          position: absolute;
+          left: 0;
+          top: 0;
           display: inline-block;
           width: 100%;
-          max-width: 1170px;
-          @include clearfix();
+          height: 100%;
+          z-index: 1;
+          @include opacity(0);
+          @include transition(opacity .5s);
+          
+          .container {
+            position: relative;
+            z-index: 2;
+            padding: 0 16px;
 
-          @include range-width(0, 450px) {
-            padding: 0 10px;
-          }
-
-          .teature_type_box {
-            display: inline-block; 
-            width: 50%;
-            float: left;
-            padding-top: 200px;
-            text-align: left;
-
-            @include range-width(0, 450px) {
-              width: 100%;
-              padding-top: 50px;
-            }
-
-            span, p, a {
+            .teature_type_boxs {
               display: inline-block;
               width: 100%;
-            }
+              max-width: 1170px;
+              @include clearfix();
 
-            span {
-              font-size: 1.2rem;
-              color: rgba(38, 38, 38, 1.00);
-              font-weight: 600;
+              .teature_type_box {
+                display: inline-block; 
+                width: 50%;
+                float: left;
+                padding-top: 200px;
+                padding-bottom: 100px;
+                text-align: left;
 
-              @include range-width(0, 450px) {
-                font-size: 1rem;
+                span, p, a {
+                  display: inline-block;
+                  width: 100%;
+                }
+
+                span {
+                  font-size: 1.2rem;
+                  color: rgba(38, 38, 38, 1.00);
+                  font-weight: 600;
+                }
+
+                p {
+                  margin: 0;
+                  padding: 15px 0;
+                  line-height: 24px;
+                  font-size: 1rem;
+                  color: rgba(38, 38, 38, 1.00);
+                  font-weight: 300;
+                }
+
+                a {
+                  cursor: pointer;
+                  text-decoration: none;
+                  color: rgba(41, 175, 144, 1.00);
+                  font-weight: 600;
+                  font-size: 1rem;
+                  height: 23px;
+                  line-height: 23px;
+                  @include transition(all .3s);
+
+                  &:after {
+                    display: inline-block;
+                    content: '\ea1c';
+                    font-family: icomoon;
+                    margin-left: 15px;
+                    font-size: .8px;
+                    padding-top: 2px;
+                  }
+
+                  &:hover, &:active {
+                    text-decoration: underline;
+                  }
+                }
               }
             }
-
-            p {
-              margin: 0;
-              padding: 15px 0;
-              line-height: 24px;
-              font-size: 1rem;
-              color: rgba(38, 38, 38, 1.00);
-              font-weight: 300;
-            }
-
-            a {
-              cursor: pointer;
-              text-decoration: none;
-              color: rgba(41, 175, 144, 1.00);
-              font-weight: 600;
-              font-size: 1rem;
-              @include transition(all .3s);
-
-              &:after {
-                display: inline-block;
-                content: '\ea1c';
-                font-family: icomoon;
-                margin-left: 15px;
-                font-size: .8px;
-                padding-top: 3px;
+          }
+          .img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+          }
+          @include range-width(0, 850px) {
+            position: relative;
+            @include opacity(1);
+            .container {
+              .teature_type_boxs {
+                padding: 0 10px;
+                .teature_type_box {
+                  width: 100%;
+                  padding-top: 50px;
+                  padding-bottom: 20px;
+                  span {
+                    font-size: 1rem;
+                  }
+                }
               }
-
-              &:hover, &:active {
-                text-decoration: underline;
+            }
+            .img {
+              display: none;
+            }
+            + div {
+              .container {
+                .teature_type_boxs {
+                  .teature_type_box {
+                    padding-top: 20px;
+                  }
+                }
+              }
+              &:last-child {
+                .container {
+                  .teature_type_boxs {
+                    .teature_type_box {
+                      padding-bottom: 50px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        @include range-width(850px) {
+          @for $i from 1 through 5 {
+            &.n#{$i - 1} {
+              > div {
+                @for $j from 1 through 5 {
+                  @if $i == $j {
+                    &:nth-child(#{$j}) {
+                      position: relative;
+                      @include opacity(1);
+                    }
+                  }
+                }
               }
             }
           }
         }
       }
 
-      img {
-        width: 100%;
-        max-width: 1480px;
+      // img {
+      //   width: 100%;
+      //   max-width: 1480px;
 
-        @include range-width(0, 450px) {
-          height: 100%;
-        }
-      }
+      //   @include range-width(0, 450px) {
+      //     height: 100%;
+      //   }
+      // }
     }
 
     .type_boxs {
       display: inline-block;
       max-width: 1170px;
+      padding: 0 16px;
       width: 100%;
       padding-top: 50px;
       @include clearfix();
@@ -476,9 +659,62 @@ html {
         padding-right: 80px;
         float: left;
         text-align: left;
-        @include clearfix();
+        @include range-width(0, 1000px) {
+          width: 100%;
+          padding-right: 0;
+        };
+        > div.select {
+          position: relative;
+          display: inline-block;
+          width: 100%;
+          height: 40px;
+          line-height: 40px;
+          margin-bottom: 16px;
+          cursor: pointer;
+          border: 1px solid rgba(239, 239, 239, 1.00);
 
-        > div {
+          @include range-width(1000px) {
+            display: none;
+          }
+          @include range-width(0, 1000px) {
+            display: inline-block;
+          };
+
+          &:after {
+            content: '\ea1c';
+            font-family: icomoon;
+            position: absolute;
+            right: 8px;
+            top: 10px;
+            font-size: 20px;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            @include rotate(90deg);
+            color: rgba(222, 222, 222, 1.00);
+
+          }
+
+          select {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            padding: 0 8px;
+            font-size: 20px;
+            background-color: white;
+            color: rgba(79, 79, 79, 1.00);
+            @include border-radius(0);
+            border: 0;
+            -webkit-appearance: none;
+            &:focus {
+              outline: 0;
+              border: 0;
+              // @include box-shadow(0 0 8px rgba(red($color), green($color), blue($color), .6));
+            }
+          }
+        }
+        > a {
           width: 100%;
           cursor: pointer;
           display: inline-block;
@@ -486,15 +722,18 @@ html {
           color: rgba(30, 30, 30, 1.00);
           font-size: 1rem;
           font-weight: 300;
-          float: left;
           padding: 10px 20px;
           @include border-radius(3px);
           margin-bottom: 20px;
+          text-decoration: none;
           @include transition(all .3s);
 
           &:hover, &:active, &.type_ac {
             background-color: rgba(22, 76, 144, 1.00);
             color: white;
+          }
+          @include range-width(0, 1000px) {
+            display: none;
           }
         }
       }
@@ -504,6 +743,10 @@ html {
         float: left;
         width: calc(100% - 380px);
         text-align: left;
+
+        @include range-width(0, 1000px) {
+          width: 100%;
+        };
 
         p {
           display: inline-block;
