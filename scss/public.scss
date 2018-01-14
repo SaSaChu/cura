@@ -164,97 +164,188 @@ html {
     }
 
     .banner_boxs {
-      @include range-width(0, 450px) {
-        height: 500px;
+      position: relative;
+      overflow: hidden;
+      height: 500px;
+      @include range-width(0, 540px) {
+        height: 600px;
       }
 
-     .container {
-      .banner_type_boxs {
+      > div {
+        position: absolute;
+      }
+      .pagination {
+        $s: 16px;
+        z-index: 2;
+        bottom: 10px;
+        left: 0;
         display: inline-block;
         width: 100%;
-        max-width: 1170px;
-        @include clearfix();
-
-        .banner_type_box {
-          display: inline-block; 
-          width: 50%;
-          float: left;
-          padding-top: 100px;
-          text-align: left;
+        height: $s;
+        text-align: center;
+        > div {
+          display: inline-block;
+          margin: 0 auto;
+          @include clearfix();
           
-          @include range-width(0, 450px) {
-            padding: 50px 15px 0 15px;
-            width: 100%;
-            text-align: center;
-          }
-
-          span, a, p {
+          > * {
+            float: left;
             display: inline-block;
-          }
-
-          span {
-            padding: 0;
-            margin: 0;
-
-            font-size: 3rem;
-            font-weight: 800;
-            color: rgba(38, 38, 38, 1.00);
-
-            @include range-width(0, 450px) {
-              font-size: 1.5rem;
-              font-weight: 600;
-            }
-          }
-
-          p {
-            padding: 20px 0;
-            margin: 0;
-            color: rgba(38, 38, 38, 1.00);
-            font-size: 1.3rem;
-            font-weight: 300;
-            line-height: 30px;
-
-            @include range-width(0, 450px) {
-              font-size: 1rem;
-              line-height: 20px;
-              padding: 10px 0;
-            }
-          }
-
-          a {
-            display: inline-block;
-            outline: 0;
+            width: $s;
+            height: $s;
+            @include border-radius(50%);
+            background-color: rgba(255, 255, 255, .65);
+            @include transition(background-color .3s);
             cursor: pointer;
-            background-color: rgba(22, 76, 144, 1.00);
-            color: white;
-            font-size: 1.2rem;
-            font-weight: 300;
-            @include border-radius(50px);
-            padding: 10px 25px;
-            @include transition(all .3s);
-            text-decoration: none;
-
-            &:hover, &:active {
-              background-color: rgba(22, 76, 144, .9);
+            
+            + * {
+              margin-left: 4px;
             }
-
-            @include range-width(0, 450px) {
-              font-size: 1rem;
-              padding: 8px 25px;
+            &.a {
+              background-color: white;
             }
           }
         }
       }
-     }
-     
-     img {
-      width: 100%;
-      max-width: 1480px; 
-
-      @include range-width(0, 450px) {
+      .bbox {
+        z-index: 1;
+        left: 0;
+        top: 0;
+        display: inline-block;
+        width: 100%;
         height: 100%;
+        @include transition(left .3s);
+
+        .container {
+          z-index: 2;
+          padding: 0 16px;
+          
+          .banner_type_boxs {
+            display: inline-block;
+            width: 100%;
+            max-width: 1170px;
+            @include clearfix();
+
+            .banner_type_box {
+              display: inline-block; 
+              width: 50%;
+              float: left;
+              padding-top: 100px;
+              text-align: left;
+              
+              @include range-width(0, 540px) {
+                padding: 50px 15px 0 15px;
+                width: 100%;
+                text-align: center;
+              }
+
+              span, a, p {
+                display: inline-block;
+              }
+
+              span {
+                padding: 0;
+                margin: 0;
+
+                font-size: 3rem;
+                font-weight: 800;
+                color: rgba(38, 38, 38, 1.00);
+
+                @include range-width(0, 769px) {
+                  font-size: 1.5rem;
+                  font-weight: 600;
+                }
+                @include range-width(769px, 1000px) {
+                  font-size: 2rem;
+                }
+              }
+
+              p {
+                padding: 20px 0;
+                margin: 0;
+                color: rgba(38, 38, 38, 1.00);
+                font-size: 1.3rem;
+                font-weight: 300;
+                line-height: 30px;
+
+                @include range-width(0, 450px) {
+                  font-size: 1rem;
+                  line-height: 20px;
+                  padding: 10px 0;
+                }
+              }
+
+              a {
+                display: inline-block;
+                outline: 0;
+                cursor: pointer;
+                background-color: rgba(22, 76, 144, 1.00);
+                color: white;
+                font-size: 1.2rem;
+                font-weight: 300;
+                @include border-radius(50px);
+                padding: 10px 25px;
+                @include transition(all .3s);
+                text-decoration: none;
+
+                &:hover, &:active {
+                  background-color: rgba(22, 76, 144, .9);
+                }
+
+                @include range-width(0, 450px) {
+                  font-size: 1rem;
+                  padding: 8px 25px;
+                }
+              }
+            }
+          }
+        }
+        .img, .img-mobile {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+        }
+        .img {
+          @include range-width(0, 540px) {
+            display: none;
+          }
+        }
+        .img-mobile {
+          @include range-width(540px) {
+            display: none;
+          };
+        }
       }
-     }
+      @for $i from 1 through 10 {
+        &.b#{$i - 1} {
+          .bbox {
+            @for $j from 1 through 10 {
+              &:nth-child(#{$j}) {
+                left: #{($j - $i) * 100%};
+              }
+            }
+          }
+        }
+      }
+
+
+     //  @include range-width(0, 450px) {
+     //    height: 500px;
+     //  }
+
+     
+     // img {
+     //  width: 100%;
+     //  max-width: 1480px; 
+
+     //  @include range-width(0, 450px) {
+     //    height: 100%;
+     //  }
+     // }
     }
 
     .product_boxs {
