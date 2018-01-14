@@ -430,16 +430,25 @@ html {
 
     .feature_boxs {
 
-      @include range-width(0, 450px) {
-        height: 500px;
+      // @include range-width(0, 450px) {
+      //   height: 500px;
+      // }
+      @include range-width(0, 850px) {
+        background-color: rgba(239, 239, 239, 1.00);
       }
 
       .tag_boxs {
         display: inline-block;
         width: 100%;
         position: absolute;
+        left: 0;
+        top: 50px;
         z-index: 100;
-        padding: 55px 0;
+        padding: 0;
+
+        @include range-width(0, 850px) {
+          display: none;
+        };
 
         > div {
           display: inline-block;
@@ -479,86 +488,161 @@ html {
         }
       }
 
-      .container {
-        .teature_type_boxs {
+      .features {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        > div {
+          position: absolute;
+          left: 0;
+          top: 0;
           display: inline-block;
           width: 100%;
-          max-width: 1170px;
-          @include clearfix();
+          height: 100%;
+          z-index: 1;
+          @include opacity(0);
+          @include transition(opacity .5s);
+          
+          .container {
+            position: relative;
+            z-index: 2;
+            padding: 0 16px;
 
-          @include range-width(0, 450px) {
-            padding: 0 10px;
-          }
-
-          .teature_type_box {
-            display: inline-block; 
-            width: 50%;
-            float: left;
-            padding-top: 200px;
-            text-align: left;
-
-            @include range-width(0, 450px) {
-              width: 100%;
-              padding-top: 50px;
-            }
-
-            span, p, a {
+            .teature_type_boxs {
               display: inline-block;
               width: 100%;
-            }
+              max-width: 1170px;
+              @include clearfix();
 
-            span {
-              font-size: 1.2rem;
-              color: rgba(38, 38, 38, 1.00);
-              font-weight: 600;
+              .teature_type_box {
+                display: inline-block; 
+                width: 50%;
+                float: left;
+                padding-top: 200px;
+                padding-bottom: 100px;
+                text-align: left;
 
-              @include range-width(0, 450px) {
-                font-size: 1rem;
+                span, p, a {
+                  display: inline-block;
+                  width: 100%;
+                }
+
+                span {
+                  font-size: 1.2rem;
+                  color: rgba(38, 38, 38, 1.00);
+                  font-weight: 600;
+                }
+
+                p {
+                  margin: 0;
+                  padding: 15px 0;
+                  line-height: 24px;
+                  font-size: 1rem;
+                  color: rgba(38, 38, 38, 1.00);
+                  font-weight: 300;
+                }
+
+                a {
+                  cursor: pointer;
+                  text-decoration: none;
+                  color: rgba(41, 175, 144, 1.00);
+                  font-weight: 600;
+                  font-size: 1rem;
+                  height: 23px;
+                  line-height: 23px;
+                  @include transition(all .3s);
+
+                  &:after {
+                    display: inline-block;
+                    content: '\ea1c';
+                    font-family: icomoon;
+                    margin-left: 15px;
+                    font-size: .8px;
+                    padding-top: 2px;
+                  }
+
+                  &:hover, &:active {
+                    text-decoration: underline;
+                  }
+                }
               }
             }
-
-            p {
-              margin: 0;
-              padding: 15px 0;
-              line-height: 24px;
-              font-size: 1rem;
-              color: rgba(38, 38, 38, 1.00);
-              font-weight: 300;
-            }
-
-            a {
-              cursor: pointer;
-              text-decoration: none;
-              color: rgba(41, 175, 144, 1.00);
-              font-weight: 600;
-              font-size: 1rem;
-              @include transition(all .3s);
-
-              &:after {
-                display: inline-block;
-                content: '\ea1c';
-                font-family: icomoon;
-                margin-left: 15px;
-                font-size: .8px;
-                padding-top: 3px;
+          }
+          .img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+          }
+          @include range-width(0, 850px) {
+            position: relative;
+            @include opacity(1);
+            .container {
+              .teature_type_boxs {
+                padding: 0 10px;
+                .teature_type_box {
+                  width: 100%;
+                  padding-top: 50px;
+                  padding-bottom: 20px;
+                  span {
+                    font-size: 1rem;
+                  }
+                }
               }
-
-              &:hover, &:active {
-                text-decoration: underline;
+            }
+            .img {
+              display: none;
+            }
+            + div {
+              .container {
+                .teature_type_boxs {
+                  .teature_type_box {
+                    padding-top: 20px;
+                  }
+                }
+              }
+              &:last-child {
+                .container {
+                  .teature_type_boxs {
+                    .teature_type_box {
+                      padding-bottom: 50px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        @include range-width(850px) {
+          @for $i from 1 through 5 {
+            &.n#{$i - 1} {
+              > div {
+                @for $j from 1 through 5 {
+                  @if $i == $j {
+                    &:nth-child(#{$j}) {
+                      position: relative;
+                      @include opacity(1);
+                    }
+                  }
+                }
               }
             }
           }
         }
       }
 
-      img {
-        width: 100%;
-        max-width: 1480px;
+      // img {
+      //   width: 100%;
+      //   max-width: 1480px;
 
-        @include range-width(0, 450px) {
-          height: 100%;
-        }
-      }
+      //   @include range-width(0, 450px) {
+      //     height: 100%;
+      //   }
+      // }
     }
 
     .type_boxs {

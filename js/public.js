@@ -20,5 +20,15 @@ $(function () {
 
     $pagination.find ('a').first ().click ();
   });
+
+  $('.feature_boxs').each (function () {
+    var $features = $(this).find ('.features');
+
+    $(this).find ('.tag_boxs > div').click (function () {
+      $features.attr ('class', 'features n' + $(this).index ());
+      $(this).addClass ('tag_ac').siblings ().removeClass ('tag_ac');
+    });
+
+  });
   
 });
