@@ -5,8 +5,8 @@
  */
 
 $(function () {
+  if (typeof imgLiquid !== 'undefined') $('._ic').imgLiquid ({ verticalAlign:'center' });
 
-  $('._ic').imgLiquid ({ verticalAlign:'center' });
   $('.banner_boxs').each (function () {
     var $that = $(this);
     var $pagination = $(this).find ('.pagination').empty ();
@@ -28,7 +28,15 @@ $(function () {
       $features.attr ('class', 'features n' + $(this).index ());
       $(this).addClass ('tag_ac').siblings ().removeClass ('tag_ac');
     });
+  });
+  $('.left2select').each (function () {
+    $('<div />').addClass ('select').append ($('<select />').append ($(this).find ('>a').map (function () {
+      return $('<option />').text ($(this).text ()).val ($(this).attr ('href')).prop ('selected', $(this).hasClass ('type_ac'));
+    }).toArray ()).change (function () {
+      window.location.assign ($(this).val ());
+    })).prependTo ($(this));
 
+    
   });
   
 });
