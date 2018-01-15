@@ -824,6 +824,9 @@ html {
         @include clearfix();
         padding-top: 50px;
         
+        @include range-width(0, 1235px) {
+          padding: 20px 10px 0 10px;
+        }
 
         > a {
           display: inline-block;
@@ -891,10 +894,17 @@ html {
           width: 570px;
           float: left;
 
+          @include range-width(885px, 990px) {
+            width: 400px;
+          }
+
+          @include range-width(0, 885px) {
+            width: 100%;
+          }
+
           .big_pic {
             display: inline-block;
             width: 100%;
-            height: 400px;
 
             img {
               display: inline-block;
@@ -945,6 +955,14 @@ html {
           float: left;
           text-align: left;
           padding: 0 50px;
+
+          @include range-width(885px, 990px) {
+            width: calc(100% - 400px);
+          }
+
+          @include range-width(0, 885px) {
+            width: 100%;
+          }
 
           .p_titel {
             display: inline-block;
