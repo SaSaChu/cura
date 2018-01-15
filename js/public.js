@@ -35,8 +35,14 @@ $(function () {
     }).toArray ()).change (function () {
       window.location.assign ($(this).val ());
     })).prependTo ($(this));
-
-    
+  });
+  
+  $('.oa-min-pic').each (function () {
+    var $bigImg = $(this).prev ().find ('img');
+    $(this).find ('a').click (function () {
+      $(this).addClass ('s_pic_ac').siblings ().removeClass ('s_pic_ac');
+      $bigImg.attr ('src', $(this).find ('img').attr('src'));
+    });
   });
   
 });
