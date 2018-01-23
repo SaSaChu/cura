@@ -19,6 +19,13 @@ $(function () {
     })));
 
     $pagination.find ('a').first ().click ();
+    
+    setInterval (function () {
+      if ($pagination.find ('a.a').next ().length)
+        $pagination.find ('a.a').next ().click ();
+      else
+        $pagination.find ('a').first ().click ();
+    }, 7 * 1000);
   });
 
   $('.feature_boxs').each (function () {
