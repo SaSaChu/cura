@@ -949,6 +949,7 @@ html {
         > a {
           display: inline-block;
           cursor: pointer;
+          text-decoration: none;
           width: 160px;
           height: 55px;
           font-size: 1rem;
@@ -1152,6 +1153,40 @@ html {
             }
           }
         }
+
+        .icon_cent_4 {
+          display: inline-block;
+          width: calc(100% / 4);
+          float: left;
+          padding-bottom: 45px;
+
+          @include range-width(0, 450px) {
+            width: 100%;
+          }
+
+          i {
+            display: inline-block;
+            width: 100%;
+            font-size: 5rem;
+            color: rgba(47, 47, 47, 1.00);
+            font-style: normal;
+          }
+
+          p {
+            display: inline-block;
+            width: 100%;
+            padding: 20px 30px;
+            margin: 0;
+            font-size: 1rem;
+            color: rgba(47, 47, 47, 1.00);
+            font-weight: 300;
+            line-height: 25px;
+
+            @include range-width(0, 800px) {
+              padding: 20px;
+            }
+          }
+        }
       }
     }
 
@@ -1342,9 +1377,14 @@ html {
 
           select {
             display: inline-block;
-            width: 90px;
+            width: 100px;
+            height: 25px;
             outline: 0;
+            @include border-radius(3px);
             background-color: white;
+            border: 1px solid rgba(149, 149, 149, 1.00);
+            color: rgba(149, 149, 149, 1.00);
+            outline: 0;
           }
         }
 
