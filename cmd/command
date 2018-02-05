@@ -1,3 +1,13 @@
+部署
+在 cmd 下執行
+php put.php -b www.curatech.jp -a {access} -s {secret} -n 0 && git co ../
+{access} => S3 的 access key
+{secret} => S3 的 secret key
+
+◎ access key、secret key 不要外流！很重要！
+◎ access key、secret key 不要外流！很重要！
+◎ access key、secret key 不要外流！很重要！
+
 
 ◎ Commit
 =======================
