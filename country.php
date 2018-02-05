@@ -48,7 +48,7 @@ if (!request_is_ajax ()) {
   exit;
 }
 
-$allow = array ('dev.case.ioa.tw', 'www.curatech.jp');
+$allow = array ('http://dev.case.ioa.tw', 'http://www.curatech.jp', 'https://sasachu.github.io', 'http://sasachu.github.io');
 isset ($_SERVER['HTTP_ORIGIN']) && in_array ($_SERVER['HTTP_ORIGIN'], $allow) || $_SERVER['HTTP_ORIGIN'] = 'dev.case.ioa.tw';
 // if (!(isset ($_SERVER['HTTP_ORIGIN']) && in_array ($_SERVER['HTTP_ORIGIN'], $allow))) {
 //   header ('HTTP/1.1 500 Internal Server Error', true, 500);

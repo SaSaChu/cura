@@ -20,7 +20,7 @@ $(function () {
     $(this).change (function () {
       var pathnames = location.pathname.split ('/').filter (function (t) {return t.length;});
       var val = $(this).val ().replace (/^\//, "");
-      if (val.split ('/')[0] == 'jp' || val.split ('/')[0] == 'tc' || val.split ('/')[0] == 'en')
+      if (val.split ('/')[0] === 'jp' || val.split ('/')[0] === 'tc' || val.split ('/')[0] === 'en')
         window.storage.country.set (val.split ('/')[0]);
       else
         window.storage.country.set ('en');
