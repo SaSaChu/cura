@@ -622,10 +622,12 @@ html {
             &.n#{$i - 1} {
               > div {
                 @for $j from 1 through 5 {
+                  z-index: 1;
                   @if $i == $j {
                     &:nth-child(#{$j}) {
                       position: relative;
                       @include opacity(1);
+                      z-index: 2;
                     }
                   }
                 }
