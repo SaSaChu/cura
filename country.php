@@ -42,11 +42,11 @@ if (!function_exists ('request_is_ajax')) {
   }
 }
 
-if (!request_is_ajax ()) {
-  header ('HTTP/1.1 500 Internal Server Error', true, 500);
-  echo "<title>500 Internal Server Error</title><body>500 Internal Server Error.Not Ajax.</body>";
-  exit;
-}
+// if (!request_is_ajax ()) {
+//   header ('HTTP/1.1 500 Internal Server Error', true, 500);
+//   echo "<title>500 Internal Server Error</title><body>500 Internal Server Error.Not Ajax.</body>";
+//   exit;
+// }
 
 $allow = array ('http://dev.case.ioa.tw', 'http://www.curatech.jp', 'https://sasachu.github.io', 'http://sasachu.github.io');
 isset ($_SERVER['HTTP_ORIGIN']) && in_array ($_SERVER['HTTP_ORIGIN'], $allow) || $_SERVER['HTTP_ORIGIN'] = 'dev.case.ioa.tw';
@@ -58,7 +58,6 @@ isset ($_SERVER['HTTP_ORIGIN']) && in_array ($_SERVER['HTTP_ORIGIN'], $allow) ||
 
 $details = json_decode (file_get_contents ("http://ipinfo.io/" . ip ()), true);
 $country = isset ($details['country']) ? $details['country'] !== 'JP' ? $details['country'] === 'TW' ? 'tc' : 'en' : 'jp' : 'en';
-
 
 header ("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
 header ('HTTP/1.1 200 OK', true, 200);
