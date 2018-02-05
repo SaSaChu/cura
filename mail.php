@@ -66,7 +66,6 @@ if (!($email && $content)) {
 }
 
 $to = "support@curatech.jp"; //收件者
-$to = "teresa@zeusdesign.com.tw"; //收件者
 
 $subject = "=?UTF-8?B?" . base64_encode ('Cura Contact') . "?=";//信件標題，解決亂碼問題
 
