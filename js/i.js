@@ -30,7 +30,7 @@ $(function () {
 
   if (window.storage.country.get () === '') {
     window.storage.country.set ('en');
-    $.ajax ({ url: 'http://curatech.jp/country.php', async: true, cache: false, dataType: 'json', type: 'get', contentType: false, processData: false }).done (function (r) {
+    $.ajax ({ url: 'http://curatech.jp/country.php', async: true, cache: false, dataType: 'json', type: 'GET' }).done (function (r) {
       window.storage.country.set (typeof r.country !== 'undefined' && (r.country === 'jp' || r.country === 'tc' || r.country === 'en') ? r.country : 'en');
     }).complete (gotoPage);
   } else {

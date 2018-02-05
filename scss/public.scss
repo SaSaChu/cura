@@ -861,7 +861,19 @@ html {
           @include clearfix();
           padding-top: 30px;
           border-top: 2px dotted rgba(230, 229, 230, 1.00);
-
+          &[data-tip]:not([data-tip='']) {
+            &:before {
+              content: attr(data-tip);
+              display: inline-block;
+              width: 100%;
+              height: 36px;
+              line-height: 36px;
+              background-color: rgba(0, 69, 139, .100);
+              margin-bottom: 30px;
+              padding: 0 8px;
+              @include border-radius(3px);
+            }
+          }
           .con_box {
             display: inline-block;
             width: 50%;
@@ -894,7 +906,7 @@ html {
 
             .con_type {
               display: inline-block;
-              width: 62px;
+              width: 65px;
               color: rgba(30, 30, 30, 1.00);
               font-size: 1rem;
               font-weight: 300;
