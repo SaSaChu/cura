@@ -735,6 +735,21 @@ html {
           @include range-width(0, 1000px) {
             display: none;
           }
+
+          &.help {
+            background-color: white;
+            margin-bottom: 0;
+
+            &:hover, &:active, &.help_ac {
+              font-weight: 600;
+              background-color: white;
+              color: rgba(0, 69, 139, 1.00);
+            }
+            @include range-width(0, 1000px) {
+              display: none;
+            }
+
+          }
         }
       }
 
@@ -769,6 +784,12 @@ html {
             font-weight: 600;
             color: rgba(0, 69, 139, 1.00);
 
+            &.p05_h {
+              width: 100%;
+              color: rgba(28, 28, 28, 1.00);
+              margin-bottom: 20px;
+            }
+
             @include range-width(0, 900px) {
               font-size: 1.5rem;
             }
@@ -795,6 +816,11 @@ html {
             font-size: 1.3rem;
             font-weight: 600;
             padding-bottom: 10px;
+
+            &.p02_h {
+              font-weight: 400;
+              color: rgba(0, 69, 139, 1.00);
+            }
           }
 
           &.p03 {
