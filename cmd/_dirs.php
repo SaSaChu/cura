@@ -22,5 +22,5 @@ $_dirs = array (
   'js'   => [['js'], true, false],
   'css'  => [['css'], true, false],
   'font' => [['eot', 'svg', 'ttf', 'woff'], true, false],
-  'img'  => [['png', 'jpg', 'jpeg', 'gif', 'svg'], true, false],
+  'img'  => [['png', 'jpg', 'jpeg', 'gif', 'svg', 'ico'], true, false],
 );
