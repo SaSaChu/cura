@@ -17,15 +17,17 @@ window.storage.country = {
 
 $(function () {
   $('#cholang select').each (function () {
+    var html = location.pathname.substr (location.pathname.lastIndexOf ("/") + 1);
+
     $(this).change (function () {
       var pathnames = location.pathname.split ('/').filter (function (t) {return t.length;});
-      var val = $(this).val ().replace (/^\//, "");
+      var val = $(this).val ();
       if (val.split ('/')[0] === 'jp' || val.split ('/')[0] === 'tc' || val.split ('/')[0] === 'en')
         window.storage.country.set (val.split ('/')[0]);
       else
         window.storage.country.set ('en');
 
-      window.location.assign ((pathnames[0] === 'cura' ? '/cura' : '') + '/' + val);
+      window.location.assign ((pathnames[0] === 'cura' ? '/cura' : '') + '/' + val + '/welcome/' + html);
     });
   });
   
