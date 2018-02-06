@@ -16,7 +16,7 @@ function setStorage (key, data) { try { if (typeof Storage === 'undefined') retu
 
 window.storage = {};
 window.storage.country = {
-  cacheTime: 1000 * 60, //每分鐘
+  cacheTime: 1000 * 60 * 60 * 24 * 30, //每月
   storageKey: 'cura.country',
   set: function (val) { return setStorage (this.storageKey, { t: new Date ().getTime (), v: val }); },
   get: function (d4) { var tmp = getStorage (this.storageKey); return (typeof tmp !== 'undefined' && typeof tmp.t !== 'undefined' && typeof tmp.v !== 'undefined' && tmp.t + this.cacheTime > new Date ().getTime () && (tmp.v === 'jp' || tmp.v === 'tc' || tmp.v === 'en')) ? tmp.v : (typeof d4 === 'undefined' ? '' : d4); },
