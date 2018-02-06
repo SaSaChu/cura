@@ -123,6 +123,10 @@ $(function () {
         }).complete (function () {
           $that.attr ('data-tip', 'Your message has been sent to our support staff, we will get back to you ASAP!');
           window.storage.contact.set ();
+          $name.val ('');
+          $phone.val ('');
+          $email.val ('');
+          $content.val ('');
         });
       } else {
         $that.attr ('data-tip', 'Please input correct Email address').addClass ('e');
