@@ -1,4 +1,4 @@
-<?php if (!defined ('BASEPATH')) exit ('No direct script access allowed');
+<?php
 
 /**
  * @author      OA Wu <comdan66@gmail.com>
@@ -6,8 +6,8 @@
  * @license     http://creativecommons.org/licenses/by-nc/2.0/tw/
  */
 
-require_once FCPATH . 'application' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'PHPMailer-5.2.21' . DIRECTORY_SEPARATOR . 'class.phpmailer.php';
-require_once FCPATH . 'application' . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'PHPMailer-5.2.21' . DIRECTORY_SEPARATOR . 'class.smtp.php';
+require_once 'lib' . DIRECTORY_SEPARATOR . 'PHPMailer-5.2.21' . DIRECTORY_SEPARATOR . 'class.phpmailer.php';
+require_once 'lib' . DIRECTORY_SEPARATOR . 'PHPMailer-5.2.21' . DIRECTORY_SEPARATOR . 'class.smtp.php';
 
 class OAMail extends PHPMailer {
 

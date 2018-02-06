@@ -65,24 +65,21 @@ if (!$email) {
   exit;
 }
 
-$to = "support@curatech.jp"; //收件者
-$to = "comdan66@gamil.com"; //收件者
-
-$subject = "=?UTF-8?B?" . base64_encode ('Cura Contact') . "?=";//信件標題，解決亂碼問題
-
-$headers = "From:" . "=?UTF-8?B?" . base64_encode ($name) . "?=" . " <" . $email . ">"; //寄件者名稱和信箱
-
 $msg = '';
-$msg .= 'Name：' . $name . "\n\n";
-$msg .= 'Phone：' . $phone . "\n\n";
-$msg .= 'Email：' . $email . "\n\n";
-$msg .= "Message：\n\n" . $content . "\n";
+$msg .= 'Name：' . $name . "<hr/>";
+$msg .= 'Phone：' . $phone . "<hr/>";
+$msg .= 'Email：' . $email . "<hr/>";
+$msg .= "Message：<br/>" . $content;
 
-$success = mail ($to, $subject, $msg, $headers);
+include 'OAMail.php';
 
-if (!$success) {
+$mail = OAMail::create ();
+$mail->addTo ('support@curatech.jp', 'Support');
+$mail->addBCC ('comdan66@gmail.com', 'OA');
+$mail->setSubject ('Cura Contact');
+$mail->setBody ($msg);
+
+if ($mail->send ())
+  echo json_encode (array ('status' => true));
+else
   echo json_encode (array ('status' => false));
-  exit;
-}
-echo json_encode (array ('status' => true));
-exit;
