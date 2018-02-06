@@ -621,6 +621,7 @@ html {
           @for $i from 1 through 5 {
             &.n#{$i - 1} {
               > div {
+                height: 480px;
                 @for $j from 1 through 5 {
                   z-index: 1;
                   @if $i == $j {

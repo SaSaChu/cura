@@ -15,7 +15,7 @@ window.storage.country = {
   get: function (d4) { var tmp = getStorage (this.storageKey); return (typeof tmp !== 'undefined' && typeof tmp.t !== 'undefined' && typeof tmp.v !== 'undefined' && tmp.t + this.cacheTime > new Date ().getTime () && (tmp.v === 'jp' || tmp.v === 'tc' || tmp.v === 'en')) ? tmp.v : (typeof d4 === 'undefined' ? '' : d4); },
 };
 window.storage.contact = {
-  cacheTime: 1000 * 10, //半分鐘
+  cacheTime: 1000 * 30, //半分鐘
   storageKey: 'cura.contact',
   set: function () { return setStorage (this.storageKey, new Date ().getTime ()); },
   get: function () { var tmp = getStorage (this.storageKey); return tmp && !isNaN (tmp) && tmp + this.cacheTime > new Date ().getTime (); },
