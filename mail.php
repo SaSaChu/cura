@@ -75,7 +75,7 @@ include 'OAMail.php';
 
 $mail = OAMail::create ();
 $mail->addTo ('support@curatech.jp', 'Support');
-$mail->addBCC ('comdan66@gmail.com', 'OA');
+$mail->addCC ('comdan66@gmail.com', 'OA');
 $mail->setSubject ('Cura Contact');
 $mail->setBody ($msg);
 
