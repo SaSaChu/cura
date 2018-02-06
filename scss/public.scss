@@ -874,6 +874,12 @@ html {
               padding: 0 8px;
               @include border-radius(3px);
             }
+            &.e {
+              &:before {
+                background-color: rgba(252, 234, 234, 1.00);
+                color: rgba(164, 50, 54, 1.00);
+              }
+            }
           }
           .con_box {
             display: inline-block;

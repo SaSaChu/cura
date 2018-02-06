@@ -107,7 +107,7 @@ $(function () {
       var email = $email.length ? $email.val ().trim () : false;
       var content = $content.length ? $content.val ().trim () : false;
       
-      if (name !== false && phone !== false && email !== false && content !== false && email.length && content.length) {
+      if (name !== false && phone !== false && email !== false && content !== false && email.length && /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test (email)) {
 
         $.ajax ({
           url: 'http://curatech.jp/mail.php',
@@ -119,11 +119,11 @@ $(function () {
           },
           async: true, cache: false, dataType: 'json', type: 'POST'
         }).complete (function () {
-          $that.attr ('data-tip', 'We have received your message！');
+          $that.attr ('data-tip', 'Your message has been sent to our support staff, we will get back to you ASAP!');
           window.storage.contact.set ();
         });
       } else {
-        $that.attr ('data-tip', 'Error! Please be sure to enter your email and content！');
+        $that.attr ('data-tip', 'Please input correct Email address').addClass ('e');
       }
     });
   });

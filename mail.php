@@ -58,14 +58,15 @@ header ('Content-Type: application/json; charset=UTF-8', true);
 $name = isset ($_POST['name']) ? $_POST['name'] : '沒有填寫';
 $phone = isset ($_POST['phone']) ? $_POST['phone'] : '沒有填寫';
 $email = isset ($_POST['email']) ? $_POST['email'] : '';
-$content = isset ($_POST['content']) ? $_POST['content'] : '';
+$content = isset ($_POST['content']) ? $_POST['content'] : '沒有填寫';
 
-if (!($email && $content)) {
+if (!$email) {
   echo json_encode (array ('status' => false));
   exit;
 }
 
 $to = "support@curatech.jp"; //收件者
+$to = "comdan66@gamil.com"; //收件者
 
 $subject = "=?UTF-8?B?" . base64_encode ('Cura Contact') . "?=";//信件標題，解決亂碼問題
 
