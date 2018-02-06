@@ -89,6 +89,8 @@ $(function () {
     var $that = $(this);
 
     $that.find ('button').click (function () {
+      $that.attr ('data-tip', '').removeClass ('e');
+
       if (window.storage.contact.get ()) {
         $that.attr ('data-tip', 'Please try again after 30 seconds！');
         return false;
