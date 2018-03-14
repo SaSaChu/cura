@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
 
     <title>Cura</title>
-
+    
     <link rel="Shortcut Icon" type="image/x-icon" href="../../img/fa-01.ico"/>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
@@ -36,40 +36,29 @@
       <div class='cent'>
         <div class='type_boxs'>
           <div class='type_left left2select'>
-            <a href='about.html'>關於</a>
-            <a href='contact.html' class='type_ac'>聯繫我們</a>
-            <a href='terms.html'>使用條款</a>
-            <a href='privacy.html'>隱私權政策</a>
+            <a href='help.html' class='help'>一般問題</a>
+            <a href='help_1.html' class='help'>安裝設定</a>
+            <a href='help_2.html' class='help'>硬體安裝</a>
+            <a href='help_3.html' class='help help_ac'>其他技術問題</a>
+            <a href='contact.html' class='help'>尋求幫助</a>
           </div>
 
           <div class='type_right'>
+            <p class='p05 p05_h'>其他技術問題</p>
+            <p class='p02 p02_h'>為什麼感測器在觸發時燈號有動作，但卻沒有收到警報推播通知？</p>
             <p class='p01'>
-              如果有產品技術上的問題，請直接聯繫<a href="mailto:support@curatech.jp">support@curatech.jp</a>
-              <br/><br>
-              如果您有任何意見反饋或是有需要協助查詢的項目，請填寫下表，我們會盡快與您聯繫！
+              Cura Home的感測器會持續將狀態回報給攝影機並由攝影機將資訊上傳到Cura Home的雲端主機上，但當感測器與攝影機之間的距離太遠或是中間有太多障礙物時就有可能發生感測器無法正常將資訊傳達給攝影機，進而導致您無法收到警報推播，在這個狀況下請試著縮短感測器跟攝影機之間的距離喔。
             </p>
 
-            <div class='con_boxs' id='contact_send' >
+            <p class='p02 p02_h'>使用iOS App安裝攝影機時系統一直出現”請連線到攝影機的Wi-Fi網路”訊息，無法完成設定。</p>
+            <p class='p01'>
+              當您輸入完要讓攝影機連線的WiFi網路的密碼後，請手動將您的手機連線到攝影機的WiFi網路，網路名稱為Cura-Home-XXXXXXXXXX，不須密碼。
+            </p>
 
-              <div class='con_box'>
-                <div class='con_type'>姓名</div>
-                <input type='text' name='name'>
-              </div>
-              <div class='con_box'>
-                <div class='con_type'>聯絡電話</div>
-                <input type='text' name='phone'>
-              </div>
-              <div class='con_box con_all'>
-                <div class='con_type'>E-mail</div>
-                <input type='email' name='email'>
-              </div>
-              <div class='con_box con_all'>
-                <textarea class='inputbox02' name='content' id='contact_content' type="text" placeholder="有什麼我們可以為您服務的嗎？" ></textarea>
-              </div>
-              <div class='con_box con_all'>
-                <button>傳送</button>
-              </div>
-            </div>
+            <p class='p02 p02_h'>為什麼在配對PIR感測器時觸發到門窗感測器也會配對成功？</p>
+            <p class='p01'>
+              在感測器配對模式中，攝影機只要偵測到環境中有裝置的狀態有變化並發出訊息就會直接與該裝置配對。因此在配對感測器時我們建議您逐項配對以確保配對的正確性喔。
+            </p>
           </div>
         </div>
       </div>
@@ -85,14 +74,14 @@
 
             <div class='f_link' id='cholang'>
               <select>
-              　<option value='tc'>繁中</option>
               　<option value='en'>English</option>
               　<option value='jp'>日文</option>
+              　<option value='tc'>繁中</option>
               </select>
             </div>
           </div>
           <div class='footer_box'>
-            <p>© 2017-2018 Cura Technology Co., Ltd.</p>
+            <p>© 2017-2018 Cura Technology Co., Ltd..</p>
           </div>
         </div>
       </footer>
