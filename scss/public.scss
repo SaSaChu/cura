@@ -1249,11 +1249,25 @@ html {
       h5 {
         display: inline-block;
         width: 100%;
-        padding: 20px 0 50px 0;
+        max-width: 800px;
+        padding: 20px 7px 50px 7px;
         margin: 0;
-        color: rgba(47, 47, 47, 1.00);
+        color: rgba(0, 61, 128, 1.00);
         font-size: 2rem;
         font-weight: 400;
+        text-align: left;
+      }
+
+      h6 {
+        display: inline-block;
+        width: 100%;
+        max-width: 800px;
+        padding: 50px 7px;
+        margin: 0;
+        color: rgba(0, 61, 128, 1.00);
+        font-size: 2rem;
+        font-weight: 400;
+        text-align: left;
       }
 
       > div {
